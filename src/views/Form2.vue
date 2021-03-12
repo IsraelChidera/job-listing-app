@@ -1,6 +1,6 @@
 <template>
     <div id="form-body">
-        <form action="">  
+        <form @submit.prevent="post" action="">  
            <div class="py-20 bg-gray-300 px-2">          
                 <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
                     <div class="px-4 py-4 ">
@@ -13,7 +13,10 @@
                         <div class="w-full px-4 py-6 ">
                             <div class="mb-1"> 
                                 <span class="text-sm">Job Title</span> 
-                                <input type="text" class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600">
+                                <input
+                                type="text" 
+                                class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600"
+                                v-model="title">
                             </div>
                             <div class="mb-1"> 
                                 <span class="text-sm">Company Name</span> 
@@ -21,7 +24,10 @@
                             </div>
                             <div class="mb-1"> 
                                 <span class="text-sm">Location</span> 
-                                <input type="email" class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600"> 
+                                <input 
+                                type="email" 
+                                class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600"
+                                v-model="location"> 
                             </div>
                             <div class="mb-1"> 
                                 <span class="text-sm">What type of employment is it?</span> 
@@ -34,7 +40,10 @@
                             </div>
                             <div class="mb-1"> 
                                 <span class="text-sm">Salary Range</span> 
-                                <input type="text" class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600"> 
+                                <input 
+                                type="text" 
+                                class="h-12 px-3 w-full border-blue-400 border-2 rounded focus:outline-none focus:border-blue-600"
+                                v-model="range"> 
                             </div>
 
                             <div class="mb-1"> 
@@ -53,7 +62,10 @@
                             </div>
 
                             <div class="mt-3 text-center pb-3"> 
-                                <button class="w-full h-12 text-lg w-32 bg-blue-600 rounded text-white hover:bg-blue-700">
+                                <button 
+                                
+                                class="w-full h-12 text-lg w-32 bg-blue-600 rounded text-white hover:bg-blue-700"
+                                >
                                     Submit Application
                                 </button>
                             </div>
@@ -62,12 +74,37 @@
                 </div>
             </div>
         </form>
+        <p>{{date}}: date</p>
     </div>
 </template>
 
 <script>
+import db from '../main.js'
+
 export default {
-    
+    data() {
+        return {
+            job: {
+                title: "",
+                location: "",
+                range: "",
+                dateDeadline: ""
+            }
+        }
+    },
+    methods: {
+        post:() => {
+            db.collection("jobss").add(
+                this.blog
+            )
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+        }
+    }
 }
 </script>
 

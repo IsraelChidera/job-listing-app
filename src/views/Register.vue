@@ -7,28 +7,59 @@
             <img src="../assets/character16.svg" alt="">
         </div>
         <div class="flex2">
-            <p>Login</p>
-            <form action="">
+            <p>Register NOW!!!</p>
+            <form @submit.prevent="register">
                 <div>
                     <label for="mail">
                         Email
                     </label>
-                    <input type="email">
+                    <input 
+                    type="email"
+                    v-model="email"
+                    >
                 </div>
                 <div>
                     <label for="Pass">Password</label>
-                    <input type="password">
+                    <input 
+                    type="password"
+                    v-model="password"
+                    >
                 </div>
-                <button class="btn">Login</button>
+                <button class="btn">
+                    Register
+                </button>
             </form>
         </div>
+        
     </div>
     
 </template>
 
 <script>
+import firebase from 'firebase'
+// import firebaseConfig from '../firebaseConfig'
+// import {db,fb} from '../firebaseConfig.js'
+
 export default {
-    
+    data(){
+        return{
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+       register(){
+           firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+            .then(() => {
+                // Signed in 
+                alert("You've sucessfully registered")
+                this.$router.push('/')
+            })
+            .catch((error) => {
+                alert(error.message)
+            });
+        } 
+    }
 }
 </script>
 
