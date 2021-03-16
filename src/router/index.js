@@ -5,8 +5,9 @@ import auth from '../layouts/Authlayout.vue'
 import form from '../views/Form.vue'
 import form2 from '../views/Form2.vue'
 import Adminpage from '../views/Admin-landing-page.vue'
-import dashboard from '../views/Dashboard.vue'
+import dashboard from '../layouts/Dashboard.vue'
 import register from '../views/Register.vue'
+import example from '../views/frontend.vue'
 
 Vue.use(VueRouter)
 
@@ -42,7 +43,14 @@ const routes = [
     component: dashboard,
     meta: {
       authRequired: true,
-    }
+    },
+    children: [
+      {
+        path: "/frontend",
+        component: example,
+        name: "example"
+      }
+    ]
   },
   {
     path: '/register',

@@ -2,30 +2,30 @@
     <div>
         <div>
             <header class="header">
-                <div class="flex">
+                <div class="flex justify-between">
                     <p>Find Jobs</p>
-                    <ul>
+                    <ul class="ulist flex justify-around font-serif text-white">
                         <li>
                             <router-link to="/">
                                 Home
                             </router-link>
                         </li>
-                        <li>
+                        <li class="" >
                             <router-link to="/dashboard">
                                 Dashboard
                             </router-link>
                         </li>
-                        <li>
+                        <li class="">
                             <router-link to="/form2">
                                 Post a job
                             </router-link>
                         </li>
-                        <li>
+                        <li class="">
                             <router-link to="/form">
                                 Register
                             </router-link>
                         </li>
-                        <li @click="logout">
+                        <li class="" @click="logout">
                             <router-link to="/">
                                 Log out
                             </router-link>
@@ -33,34 +33,47 @@
                     </ul>
                 </div>
                 <h2>Find your dreamJob</h2>
-            </header>
-            
-            <div class="mb-6 flex-search-btns">
-                <div class="flex-search">
-                    <div>
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Front end developer">
-                        <button>
-                            Search
+                <div class="mb-6 flex-search-btns">
+                    <div class="flex-search">
+                        <div>
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Front end developer">
+                            <button>
+                                Search
+                            </button>
+                        </div>
+                    
+                    </div>
+
+                    <div class="flex-btn">
+                        <button class="hover:bg-red-700">
+                            <router-link to="/form2">Add new job</router-link>
                         </button>
                     </div>
-                
                 </div>
+            </header>
+        </div> 
 
-                <div class="flex-btn">
-                    <button>
-                        <router-link to="/form2">Add new job</router-link>
-                    </button>
+        <div class="bg-gray-50 pt-24 flex justify-between">         
+            <div class="flex-1 mr-4 ml-6"> 
+                <div class="flex justify-around mb-4 text-sm">
+                    <p class="text-gray-900">Showing 68 results</p>
+                    <div>
+                        <p class="text-gray-400">Sort by: Latest</p>
+                    </div>
                 </div>
+                <sidebar/>
             </div>
-
-        
-        </div>    
+            <div class="flex-1" >
+              <router-view/>
+            </div>
+        </div>   
     </div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import sidebar from '../components/adminSidebar'
 export default {
     data(){
         return{
@@ -77,6 +90,9 @@ export default {
                 this.$router.push('/');
             });
         }
+    },
+    components: {
+        sidebar
     }
 }
 </script>
@@ -88,19 +104,13 @@ export default {
     height: 40vh;
 }
 
-* {
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
-.header .flex{
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 3rem 4rem 3rem;
-}
-
-.flex .flex-icons {
+.flex-icons {
     display: flex;
     justify-content: space-between;
 }
@@ -109,7 +119,7 @@ header div p{
     cursor: pointer;
     color:white;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 header h2 {
@@ -117,9 +127,10 @@ header h2 {
     font-family: cursive;
     font-size: 1.6rem;
     color: #334;
-    position: absolute;
-    bottom: 1px;
-    padding: 0rem 3rem;
+    padding-left: 1rem;
+    /* position: absolute; */
+    /* bottom: 1px; */
+    /* padding: 0rem 3rem; */
 }
 
 .flex-search-btns {
@@ -166,4 +177,15 @@ header h2 {
     color: #ffffff;
 }
 
+.header .flex{
+    padding: 2rem;
+}
+
+.ulist li {
+    padding-right: 15px;
+}
+
+/* .dd-flex {
+    display: flex;
+} */
 </style>
