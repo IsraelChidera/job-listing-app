@@ -3,11 +3,11 @@
         <section class="bg-white p-8 mr-4 rounded-lg">
             <div class="flex flex-col">
                 <h1 class="md:text-2xl text-gray-900 font-semibold">
-                    Front end developer
+                    Graphics Designer
                 </h1>
                 <p class="mt-2">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    Ikeja, Lagos
+                    Alausa, Lagos
                 </p>
             </div>
             <button class=" mt-6 mb-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">

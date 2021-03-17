@@ -64,7 +64,7 @@
                 </div>
                 <sidebar/>
             </div>
-            <div class="flex-1" >
+            <div class="flex-1" > 
               <router-view/>
             </div>
         </div>   
@@ -74,6 +74,7 @@
 <script>
 import firebase from 'firebase'
 import sidebar from '../components/adminSidebar'
+
 export default {
     data(){
         return{
@@ -92,7 +93,7 @@ export default {
         }
     },
     components: {
-        sidebar
+        sidebar,
     }
 }
 </script>

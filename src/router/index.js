@@ -7,7 +7,10 @@ import form2 from '../views/Form2.vue'
 import Adminpage from '../views/Admin-landing-page.vue'
 import dashboard from '../layouts/Dashboard.vue'
 import register from '../views/Register.vue'
-import example from '../views/frontend.vue'
+import frontendsp from '../views/frontend.vue'
+import graphicsp from '../views/Graphics.vue'
+import backendsp from '../views/Backend.vue'
+import UIUX from '../views/UIUX.vue'
 
 Vue.use(VueRouter)
 
@@ -21,11 +24,6 @@ const routes = [
     path: '/form',
     name: 'form',
     component: form,
-    // component: () => import(/* webpackChunkName: "about" */ '../views/Form.vue')
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/form2',
@@ -47,8 +45,23 @@ const routes = [
     children: [
       {
         path: "/frontend",
-        component: example,
-        name: "example"
+        component: frontendsp,
+        name: "frontend"
+      },
+      {
+        path: "/backend",
+        component: backendsp,
+        name: "backend"
+      },
+      {
+        path: "/graphics",
+        component: graphicsp,
+        name: "graphics"
+      },
+      {
+        path: "/UIUX",
+        component: UIUX,
+        name: "UIUX"
       }
     ]
   },

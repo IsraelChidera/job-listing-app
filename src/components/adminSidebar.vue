@@ -1,9 +1,14 @@
 <template>
   <div>
     <section
-    @click="active_class"
-    class="bg-indigo-900 mr-4 rounded-lg text-gray-300">
-      <router-link to="/frontend">
+    
+    class="bg-white mr-4 rounded-lg text-gray-700">
+      <router-link 
+      to="/frontend"
+      active-class="active"
+      exact tag="p"
+      class="side"
+      >
         <div class="p-6">
           <div class="flex justify-between text-2xl font-semibold">
             <h3>Front end developer</h3>
@@ -29,9 +34,14 @@
     </section>
 
     <section 
-    @click="active_class"
+   
     class="bg-white mr-4 rounded-lg mt-6 text-gray-700">
-      <router-link to="/frontend" active-class="active">
+      <router-link
+        to="/backend"
+        active-class="active"
+        exact tag="p"
+        class="side"
+       >
         <div class="p-6">
           <div class="flex justify-between text-2xl font-semibold">
             <h3>Back end developer</h3>
@@ -57,9 +67,13 @@
     </section>
 
     <section
-    @click="active_class"
+   
      class="bg-white mr-4 rounded-lg mt-6 text-gray-700">
-      <router-link to="/frontend">
+      <router-link to="/UIUX"
+        active-class="active"
+        exact tag="p"
+        class="side"
+      >
         <div class="p-6">
           <div class="flex justify-between text-2xl font-semibold">
             <h3>UI/UX Designer</h3>
@@ -85,9 +99,13 @@
     </section>
 
     <section 
-    @click="active_class"
+    
     class="bg-white mr-4 rounded-lg mt-6 text-gray-700">
-      <router-link to="/frontend">
+      <router-link to="/graphics" 
+        active-class="active"
+        exact tag="p"
+        class="side"
+      >
         <div class="p-6">
           <div class="flex justify-between text-2xl font-semibold">
             <h3>Graphic designer</h3>
@@ -122,14 +140,20 @@ export default{
         }
     },
     methods: {
-      active_class(){
-
-      }
+      
     }
 }
 
 </script>
 
 <style scoped>
-
+.side{
+  background-color: white;
+  color: black;
+}
+.side.active {
+  background-color: brown;
+  color: white;
+  border-radius: 8px;
+}
 </style>
